@@ -35,17 +35,21 @@ currentTime.setupBusiness(
 )
 
 if(!currentTime.isBusinessDay()) {
-  core.setFailed('It\'s probably better if you leave it for next week')
+  core.setFailed('It\'s probably better if you leave it for next week' + deployDays + '1')
+  return
 }
 
 if(currentTime.isHoliday()) {
   core.setFailed('Are you forgetting something?')
+  return
 }
 
 if(currentTime.hour() <= dayStartHour) {
   core.setFailed('Go get some coffee, and try again later when people are online.')
+  return
 }
 
 if(currentTime.hour() >= dayEndHour) {
   core.setFailed('It\'s probably better if you wait till tomorrow')
+  return
 }
