@@ -5,13 +5,27 @@ const core = require('@actions/core')
 const timezone     = core.getInput('timezone')
 const dayStartHour = core.getInput('dayStartHour')
 const dayEndHour   = core.getInput('dayEndHour')
-const deployDays   = [
-  core.getInput('deployMonday')    && 1,
-  core.getInput('deployTuesday')   && 2,
-  core.getInput('deployWednesday') && 3,
-  core.getInput('deployThursday')  && 4,
-  core.getInput('deployFriday')    && 5
-].filter(x => x)
+const deployDays   = []
+
+if(core.getInput('deployMonday')) {
+  deployDays.push(1)
+}
+
+if(core.getInput('deployTuesday')) {
+  deployDays.push(2)
+}
+
+if(core.getInput('deployWednesday')) {
+  deployDays.push(3)
+}
+
+if(core.getInput('deployThursday')) {
+  deployDays.push(4)
+}
+
+if(core.getInput('deployFriday')) {
+  deployDays.push(5)
+}
 
 const currentTime = DateTime.now()
 
