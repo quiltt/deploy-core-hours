@@ -34,11 +34,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy?
     steps:
-    - name: No Deploy Core Hours
+    - name: Deploy Core Hours
       uses: quiltt/deploy-core-hours@v2.0
       with:
         timezone: 'America/New_York'
         dayStartHour: 10
-        dayEndHour: 8
+        dayEndHour: 17
         deployFriday: false
 ```
