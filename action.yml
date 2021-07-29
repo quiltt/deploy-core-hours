@@ -1,5 +1,5 @@
 name: 'No Deploy Friday'
-description: 'This GitHub Action will prevent you from deploying on Friday after 5pm'
+description: 'This GitHub Action will prevent you from deploying on Friday, Saturday, and Sunday'
 inputs:
   timezone:
     description: 'Timezone'

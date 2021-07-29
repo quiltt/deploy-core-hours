@@ -1,6 +1,6 @@
-# [No Deploy Friday](https://nodeployfriday.bygeorgenet.me)
+# No Deploy Friday
 
-This GitHub Action will prevent you from deploying on Friday after 5pm.
+This GitHub Action will prevent you from auto deploying on Friday, Saturday, and Sunday.
 
 ## Inputs
 
@@ -10,7 +10,7 @@ This GitHub Action will prevent you from deploying on Friday after 5pm.
 
 ## Example usage
 ```yaml
-uses: gbougakov/no-deploy-friday@v1
+uses: quiltt/no-deploy-friday@v1
 with:
-  timezone: 'Europe/Moscow'
+  timezone: 'America/New_York'
 ```
