@@ -10,7 +10,20 @@ This GitHub Action will prevent you from auto deploying on Friday, Saturday, and
 
 ## Example usage
 ```yaml
-uses: quiltt/no-deploy-friday@v1.1
-with:
-  timezone: 'America/New_York'
+name: No Deploy Fridays
+
+on:
+  pull_request:
+    branches:
+      - 'main'
+
+jobs:
+  no_deploy_friday_job:
+    runs-on: ubuntu-latest
+    name: Deploy?
+    steps:
+    - name: No Deploy Fridays
+      uses: quiltt/no-deploy-friday@v1.1
+      with:
+        timezone: 'America/New_York'
 ```
