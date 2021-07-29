@@ -1,0 +1,3 @@
+uses: quiltt/no-deploy-friday@v1.1
+with:
+  timezone: 'America/New_York'
