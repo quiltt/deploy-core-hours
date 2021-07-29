@@ -20,14 +20,18 @@ currentTime.setupBusiness(
   { businessDays: deployDays }
 )
 
-console.log(timezone, dayStartHour, dayEndHour, deployDays)
-console.log(currentTime.isBusinessDay(), currentTime.isHoliday(), currentTime.hour())
-
-if(
-  !currentTime.isBusinessDay() ||
-  currentTime.isHoliday() ||
-  currentTime.hour() <= dayStartHour ||
-  currentTime.hour() >= dayEndHour
-) {
+if(!currentTime.isBusinessDay()) {
   core.setFailed('It\'s probably better if you leave it for next week')
+}
+
+if(currentTime.isHoliday()) {
+  core.setFailed('Are you forgetting something?')
+}
+
+if(currentTime.hour() <= dayStartHour) {
+  core.setFailed('Go get some coffee, and try again later when people are online.')
+}
+
+if(currentTime.hour() >= dayEndHour) {
+  core.setFailed('It\'s probably better if you wait till tomorrow')
 }
