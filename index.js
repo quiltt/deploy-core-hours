@@ -34,7 +34,7 @@ currentTime.setupBusiness(
 )
 
 if(!currentTime.isBusinessDay()) {
-  core.setFailed('It\'s probably better if you leave it for next week' + deployDays)
+  core.setFailed('It\'s probably better if you leave it for next week')
 
 } else if(currentTime.isHoliday()) {
   core.setFailed('Are you forgetting something?')
