@@ -1,4 +1,4 @@
-name: No Deploy Fridays
+name: Deploy Core Hours
 
 on:
   pull_request:
@@ -6,11 +6,14 @@ on:
       - 'main'
 
 jobs:
-  no_deploy_friday_job:
+  no_deploy_job:
     runs-on: ubuntu-latest
     name: Deploy?
     steps:
-    - name: No Deploy Fridays
+    - name: Deploy Core Hours
       uses: quiltt/no-deploy-friday@v1.1
       with:
         timezone: 'America/New_York'
+        dayStartHour: 10
+        dayEndHour: 8
+        deployFriday: false
