@@ -7961,25 +7961,45 @@ const core = __nccwpck_require__(438)
 const timezone     = core.getInput('timezone')
 const dayStartHour = core.getInput('dayStartHour')
 const dayEndHour   = core.getInput('dayEndHour')
-const deployDays   = [
-  core.getInput('deployMonday')    && 1,
-  core.getInput('deployTuesday')   && 2,
-  core.getInput('deployWednesday') && 3,
-  core.getInput('deployThursday')  && 4,
-  core.getInput('deployFriday')    && 5
-].filter(x => x)
+const deployDays   = []
 
-const currentTime = luxon_business_days__WEBPACK_IMPORTED_MODULE_0__.DateTime.now().setZone(timezone).setupBusiness(
+if(core.getInput('deployMonday')) {
+  deployDays.push(1)
+}
+
+if(core.getInput('deployTuesday')) {
+  deployDays.push(2)
+}
+
+if(core.getInput('deployWednesday')) {
+  deployDays.push(3)
+}
+
+if(core.getInput('deployThursday')) {
+  deployDays.push(4)
+}
+
+if(core.getInput('deployFriday')) {
+  deployDays.push(5)
+}
+
+const currentTime = luxon_business_days__WEBPACK_IMPORTED_MODULE_0__.DateTime.now().setZone(timezone)
+
+currentTime.setupBusiness(
   { businessDays: deployDays }
 )
 
-if(
-  !currentTime.isBusinessDay() ||
-  currentTime.isHoliday() ||
-  currentTime.hour() <= dayStartHour ||
-  currentTime.hour() >= dayEndHour
-) {
-  core.setFailed('It\'s probably better if you leave it for next week')
+if(!currentTime.isBusinessDay()) {
+  core.setFailed('It\'s probably better if you leave it for next week' + deployDays)
+
+} else if(currentTime.isHoliday()) {
+  core.setFailed('Are you forgetting something?')
+
+} else if(currentTime.hour <= dayStartHour) {
+  core.setFailed('Go get some coffee, and try again later when people are online.')
+
+} else if(currentTime.hour >= dayEndHour) {
+  core.setFailed('It\'s probably better if you wait till tomorrow' + currentTime.hour + ' - ' +  dayEndHour)
 }
 
 })();

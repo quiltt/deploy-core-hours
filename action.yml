@@ -12,7 +12,7 @@ inputs:
   dayEndHour:
     description: 'End of working hours'
     required: false
-    default: 5
+    default: 17
   deployMonday:
     description: 'Deploy on Mondays?'
     required: false
@@ -25,8 +25,8 @@ inputs:
     description: 'Deploy on Wednesdays?'
     required: false
     default: true
-  deployThrusday:
-    description: 'Deploy on Thrusdays?'
+  deployThursday:
+    description: 'Deploy on Thursdays?'
     required: false
     default: true
   deployFriday:
