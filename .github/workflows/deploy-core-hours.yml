@@ -11,7 +11,7 @@ jobs:
     name: Deploy?
     steps:
     - name: Deploy Core Hours
-      uses: quiltt/deploy-core-hours@v1.2
+      uses: quiltt/deploy-core-hours@workflow
       with:
         timezone: 'America/New_York'
         dayStartHour: 10

@@ -7969,7 +7969,10 @@ const deployDays   = [
   core.getInput('deployFriday')    && 5
 ].filter(x => x)
 
-const currentTime = luxon_business_days__WEBPACK_IMPORTED_MODULE_0__.DateTime.now().setZone(timezone).setupBusiness(
+const currentTime = luxon_business_days__WEBPACK_IMPORTED_MODULE_0__.DateTime.now()
+
+currentTime.setZone(timezone)
+currentTime.setupBusiness(
   { businessDays: deployDays }
 )
 

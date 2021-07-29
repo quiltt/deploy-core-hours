@@ -13,7 +13,10 @@ const deployDays   = [
   core.getInput('deployFriday')    && 5
 ].filter(x => x)
 
-const currentTime = DateTime.now().setZone(timezone).setupBusiness(
+const currentTime = DateTime.now()
+
+currentTime.setZone(timezone)
+currentTime.setupBusiness(
   { businessDays: deployDays }
 )
 
