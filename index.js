@@ -27,29 +27,21 @@ if(core.getInput('deployFriday')) {
   deployDays.push(5)
 }
 
-const currentTime = DateTime.now()
+const currentTime = DateTime.now().setZone(timezone)
 
-currentTime.setZone(timezone)
 currentTime.setupBusiness(
   { businessDays: deployDays }
 )
 
 if(!currentTime.isBusinessDay()) {
-  core.setFailed('It\'s probably better if you leave it for next week' + deployDays + '1')
-  return
-}
+  core.setFailed('It\'s probably better if you leave it for next week' + deployDays)
 
-if(currentTime.isHoliday()) {
+} else if(currentTime.isHoliday()) {
   core.setFailed('Are you forgetting something?')
-  return
-}
 
-if(currentTime.hour() <= dayStartHour) {
+} else if(currentTime.hour <= dayStartHour) {
   core.setFailed('Go get some coffee, and try again later when people are online.')
-  return
-}
 
-if(currentTime.hour() >= dayEndHour) {
+} else if(currentTime.hour >= dayEndHour) {
   core.setFailed('It\'s probably better if you wait till tomorrow')
-  return
 }

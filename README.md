@@ -14,7 +14,7 @@ Default `9`.
 
 ### `dayEndHour`
 
-Default `5`.
+Default `17`(5pm).
 
 ### `deploy<DAY_OF_WEEK>`
 
