@@ -11,7 +11,7 @@ jobs:
     name: Deploy?
     steps:
     - name: Deploy Core Hours
-      uses: quiltt/no-deploy-friday@v1.1
+      uses: quiltt/no-deploy-friday@v1.2
       with:
         timezone: 'America/New_York'
         dayStartHour: 10
