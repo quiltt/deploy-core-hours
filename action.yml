@@ -1,13 +1,41 @@
-name: 'No Deploy Friday'
-description: 'This GitHub Action will prevent you from deploying on Friday, Saturday, and Sunday'
+name: 'Deploy Core Hours'
+description: 'This GitHub Action will prevent you from auto deploying during non-core hours, and (UPS) holidays.'
 inputs:
   timezone:
     description: 'Timezone'
     required: false
     default: 'UTC'
+  dayStartHour:
+    description: 'Start of working hours'
+    required: false
+    default: 9
+  dayEndHour:
+    description: 'End of working hours'
+    required: false
+    default: 5
+  deployMonday:
+    description: 'Deploy on Mondays?'
+    required: false
+    default: true
+  deployTuesday:
+    description: 'Deploy on Tuesdays?'
+    required: false
+    default: true
+  deployWednesday:
+    description: 'Deploy on Wednesdays?'
+    required: false
+    default: true
+  deployThrusday:
+    description: 'Deploy on Thrusdays?'
+    required: false
+    default: true
+  deployFriday:
+    description: 'Deploy on Fridays?'
+    required: false
+    default: true
 runs:
   using: 'node12'
   main: 'dist/index.js'
 branding:
   icon: 'clock'
-  color: 'red'
+  color: 'purple'
