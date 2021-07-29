@@ -20,6 +20,9 @@ currentTime.setupBusiness(
   { businessDays: deployDays }
 )
 
+console.log(timezone, dayStartHour, dayEndHour, deployDays)
+console.log(currentTime.isBusinessDay(), currentTime.isHoliday(), currentTime.hour())
+
 if(
   !currentTime.isBusinessDay() ||
   currentTime.isHoliday() ||
