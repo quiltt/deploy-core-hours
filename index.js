@@ -39,9 +39,9 @@ if(!currentTime.isBusinessDay()) {
 } else if(currentTime.isHoliday()) {
   core.setFailed('Are you forgetting something?')
 
-} else if(currentTime.hour <= dayStartHour) {
+} else if(currentTime.hour < dayStartHour) {
   core.setFailed('Go get some coffee, and try again later when people are online.')
 
-} else if(currentTime.hour >= dayEndHour) {
-  core.setFailed('It\'s probably better if you wait till tomorrow')
+} else if(currentTime.hour > dayEndHour) {
+  core.setFailed('It\'s probably better if you wait till next week')
 }
