@@ -43,5 +43,5 @@ if(!currentTime.isBusinessDay()) {
   core.setFailed('Go get some coffee, and try again later when people are online.')
 
 } else if(currentTime.hour > dayEndHour) {
-  core.setFailed('It\'s probably better if you wait till next week')
+  core.setFailed('It\'s probably better if you wait till tomorrow')
 }
