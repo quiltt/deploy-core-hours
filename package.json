@@ -6,7 +6,7 @@
   "author": "Zane Wolfgang Pickett <sirwolfgang@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.4",
+    "@actions/core": "^1.9.1",
     "@actions/github": "^2.1.1",
     "luxon": "^2.0.1",
     "luxon-business-days": "^2.8.2"
