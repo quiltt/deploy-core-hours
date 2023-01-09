@@ -8,7 +8,7 @@
   "dependencies": {
     "@actions/core": "^1.2.4",
     "@actions/github": "^2.1.1",
-    "luxon": "^2.0.1",
+    "luxon": "^2.5.2",
     "luxon-business-days": "^2.8.2"
   }
 }
